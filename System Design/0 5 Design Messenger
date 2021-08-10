@@ -1,0 +1,21 @@
+Design Messager:
+Pull model -> user pull channel 
+Push model -> when poster post message, it deliver to subscriber directly
+Trade off: Push model no latency， but could push to inactive user 
+
+How server know user is active:
+long pulling, a hashtable store user->connectService info
+
+How does the messenger maintain the sequencing of the messages:
+Each user has its own message table with same timestamp
+
+DataBase:
+Needs lots of write, read, lots of small updates
+use dynamo db, each channel has a table, ordered by time stamp, messageId
+
+Partition by userID or messageId:
+UserID, some active user, may need further partition, but range query is fast
+MessageID, message distributed evenly, but the query for range may go to several db
+
+Capacity estimation:
+Storage size * 3
