@@ -71,3 +71,16 @@ Design a ML system for delecting / hiding violent posts
 
 [Data Scientist](https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=737967&extra=page%3D2%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B3%5D%3D3%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D2%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline)  
 第二天先面了一轮ml design，问的是如何设计一个machine translation evaluation system。主要是online scenario如何评估翻译质量。最后问了一个coding题。楼主准备好多天leetcode，都没太用上。结果面了个写一个clustering的算法。我花了半小时写了一个kmeans，出了几个小bug。最后问了一下新来一个point 怎么找离它最近的top k的点。  
+
+[SubarraySumEqualsK](https://leetcode.com/problems/subarray-sum-equals-k/  
+Given an array of integers nums and an integer k, return if it is possible that continuous subarrays whose sum equals to k.
+the integer could be negative.
+
+[1,1,1] k = 2, yes, [1,1]
+[1,1,1] k = 4, no,
+[2,2,-1] k = 1, yes, [2, -1]
+
+[KClosestPointstoOrigin](https://leetcode.com/problems/k-closest-points-to-origin/)
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)2 + (y1 - y2)2).
+You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
