@@ -60,6 +60,13 @@ cons:
         3. lots of write, the replication can be blocked
         4. more slaves, more you have to replicate which leads to greater replication lag
         5. replication add more hardware and additional complexity
+        6. prevent master failure: write ahead log( this is append only log)
+        7. consistent reading: read your own write, 
+           1.  read your own profile from master 
+           2.  remember you last update time
+           3.  multiple datacenter read can not guarantee
+       1. Monotonic/prefix read: make sure all reads from the same relica / all data stores to same replica
+
     2. Master-master replication: 2 master to read and write
         1. disadvantage: need a load balancer to determine with one to write
         2. loss consistency, need time to replicate the nodes
@@ -90,8 +97,8 @@ cons:
             1. Application adds/updates entry in cache
             2. Cache synchronously writes entry to data store
             3. advantage: the data read is up to date
-            3. disadvantage: slow due to write operation, but subsequent reads is fast.User more tolarent latency when updating the data
-            4. Most data might never be read
+            4. disadvantage: slow due to write operation, but subsequent reads is fast.User more tolarent latency when updating the data
+            5. Most data might never be read
         3. Write behind:
             1. update cache, then async write entry to data store
             2. disadvantage: could be data loss if cache goes down
@@ -109,3 +116,8 @@ cons:
             1. disadvantage: tightly coupled to service implementation
         4. REST API: REST is focused on exposing data. It minimizes the coupling between client/server and is often used for public HTTP APIs. REST uses a more generic and uniform method of exposing resources through URIs,
             1. disadvantage: too simple, need lots of parameters to represent a certain state
+
+## Designing Data-intensive Applications
+
+1. Replication
+   1. 遇到
